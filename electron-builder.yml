@@ -1,0 +1,23 @@
+appId: 'com.my-app'
+productName: 'My App'
+copyright: Copyright © 2020 ${author}
+
+directories:
+  buildResources: resources
+  output: release/${version}
+  app: .
+
+buildVersion: 1.0.0 
+artifactName: ${productName}-${version}-${channel}.${ext}
+files: 
+  - output
+  - resources
+asar: true
+
+publish: 
+  - provider: generic
+    url: https://update.electron-builder.com
+    channel: latest
+releaseInfo:
+  releaseName: 'A New Playground for Electron!'
+  releaseNotes: 'Some new features now is available.'

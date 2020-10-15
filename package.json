@@ -1,0 +1,23 @@
+{
+  "name": "electron-action",
+  "version": "1.0.0",
+  "main": "output/main/index.js",
+  "repository": "https://github.com/Gstring-w/electron-action.git",
+  "author": "guancaiwang <guancaiwang@xiaoheiban.cn>",
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "electron": "^10.1.3",
+    "electron-builder": "^22.9.1",
+    "typescript": "^4.0.3",
+    "webpack": "^5.1.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-merge": "^5.2.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev:main": "NODE_ENV=development webpack --config ./build/webpack.config.main.js --watch",
+    "build:main": "webpack --config ./build/webpack.config.main.js",
+    "pack-all": "electron-builder build -mw"
+  }
+}
