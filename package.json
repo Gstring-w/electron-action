@@ -1,7 +1,7 @@
 {
   "name": "electron-action",
   "version": "1.0.0",
-  "main": "app/index.js",
+  "main": "output/main/index.js",
   "repository": "https://github.com/Gstring-w/electron-action.git",
   "author": "guancaiwang <guancaiwang@xiaoheiban.cn>",
   "license": "MIT",
