@@ -15,7 +15,7 @@ jobs:
           node-version: 10
 
       - name: Build/release Electron app
-        run: yarn && yarn pack-all
+        run: npm && npm run pack-all
       - name: zip package
         run: |
           zip -q -r  ${{ matrix.os }}.zip . -i ./release/*.*.*/*.dmg . -i ./release/*.*.*/*.exe
