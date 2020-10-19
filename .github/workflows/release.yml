@@ -5,11 +5,6 @@ on: push
 jobs:
   release:
     runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
@@ -20,18 +15,10 @@ jobs:
           node-version: 10
 
       - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
-        with:
-          # GitHub token, automatically provided to the action
-          # (No need to define this secret in the repo settings)
-          github_token: ${{ secrets.github_token }}
-
-          # If the commit is tagged with a version (e.g. "v1.0.0"),
-          # release the app after building
-          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        run: yarn && yarn pack-all
       - name: zip package
         run: |
-          zip -q -r  ${{ matrix.os }} . -i ./release/*.*.*/*.dmg . -i ./release/*.*.*/*.exe
+          zip -q -r  ${{ matrix.os }}.zip . -i ./release/*.*.*/*.dmg . -i ./release/*.*.*/*.exe
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
